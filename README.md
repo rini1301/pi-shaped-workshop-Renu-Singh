@@ -2,12 +2,6 @@
 
 ## 📁 Day 1 - Docker & Node.js Hello World App
 
-This repository demonstrates basic Docker usage: containerizing a simple Node.js application and pushing the image to Docker Hub.
-
----
-
-## 🚀 What Has Been Done
-
 - ✅ Created a simple Node.js REST API (`Hello, world!!`)
 - ✅ Wrote a `Dockerfile` to containerize the app
 - ✅ Built the Docker image with the tag `renu1301/hello-node-api:day1`
@@ -16,22 +10,8 @@ This repository demonstrates basic Docker usage: containerizing a simple Node.js
 
 ---
 
-## 📦 Project Structure
-
-pi-shaped-workshop-Renu-Singh/
-└── docker-k8s-workshop/
-└── day1/
-├── app.js
-├── Dockerfile
-├── package.json
-├── package-lock.json
-└── README.md
-
-
 
 ---
-
-##  Core Concept Questions
 
 ### 1. Why Docker is Useful in Building and Deploying Microservices
 
