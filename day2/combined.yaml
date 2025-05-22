@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: day1-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: day1
+  template:
+    metadata:
+      labels:
+        app: day1
+    spec:
+      containers:
+      - name: day1-container
+        image: nginx
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: day1-app-affinity
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: day1
+  template:
+    metadata:
+      labels:
+        app: day1
+    spec:
+      containers:
+      - name: day1-container
+        image: nginx
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - docker-desktop  
+      tolerations:
+      - key: "example-key"
+        operator: "Equal"
+        value: "example-value"
+        effect: "NoSchedule"
